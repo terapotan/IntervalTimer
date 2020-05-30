@@ -24,5 +24,11 @@ namespace IntervalTimer
         {
             InitializeComponent();
         }
+
+        private void WhenTimerSettingButtonPressed(object sender, RoutedEventArgs e)
+        {
+            var WindowInstance = new TimerSetter();
+            WindowInstance.ShowDialog();
+        }
     }
 }
