@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntervalTimer"
         mc:Ignorable="d"
-        Title="TimerSetter" Height="372" Width="294">
+        Title="TimerSetter" Height="372" Width="294" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -32,7 +32,6 @@
         </StackPanel>
         <Separator Grid.Row="0" VerticalAlignment="Bottom" Margin="1"></Separator>
 
-
         <!--1行目-->
         <Separator Grid.Row="1" VerticalAlignment="Bottom" Margin="1"></Separator>
         <TextBlock Text="タイマー2" Margin="10" FontSize="20" Grid.Row="1"></TextBlock>
@@ -51,6 +50,28 @@
                 <Label Content="秒" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
             </StackPanel>
         </StackPanel>
+        
         <!--2行目-->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="繰り返し回数" Margin="10" FontSize="15"></TextBlock>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox x:Name="test6" Width="50" FontSize="15" Height="20" TextAlignment="Right"></TextBox>
+                <Label Content="回" FontSize="20" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="OK" Padding="20,0,20,0" Margin="5"/>
+                <Button Content="キャンセル" Padding="5,0,5,0" Margin="5"/>
+
+            </StackPanel>
+
+        </Grid>
+        
     </Grid>
 </Window>
