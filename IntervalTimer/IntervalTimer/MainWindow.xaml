@@ -1,0 +1,27 @@
+﻿<Window x:Class="IntervalTimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IntervalTimer"
+        mc:Ignorable="d"
+        Title="インターバルタイマー" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Viewbox Grid.Row="0" Margin="30">
+            <TextBlock Text="00:00:00" TextAlignment="Center"  VerticalAlignment="Center"/>
+        </Viewbox>
+        
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="インターバル設定" Margin="10" Padding="10" Click="WhenTimerSettingButtonPressed"></Button>
+            <Button Content="タイマー停止" Margin="10"></Button>
+            <Button Content="タイマー一時停止" Margin="10"></Button>
+            <Button Content="タイマー再生" Margin="10"></Button>
+        </WrapPanel>
+    </Grid>
+</Window>
