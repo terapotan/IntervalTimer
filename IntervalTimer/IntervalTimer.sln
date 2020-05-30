@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntervalTimer", "IntervalTimer\IntervalTimer.csproj", "{379C12DC-E57D-40CE-9BD9-9ABA777888E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntervalTimerTestProject", "IntervalTimerTestProject\IntervalTimerTestProject.csproj", "{5B63E010-9F6D-4CF5-B508-94CA1A6A8564}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{379C12DC-E57D-40CE-9BD9-9ABA777888E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379C12DC-E57D-40CE-9BD9-9ABA777888E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379C12DC-E57D-40CE-9BD9-9ABA777888E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379C12DC-E57D-40CE-9BD9-9ABA777888E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B63E010-9F6D-4CF5-B508-94CA1A6A8564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B63E010-9F6D-4CF5-B508-94CA1A6A8564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B63E010-9F6D-4CF5-B508-94CA1A6A8564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B63E010-9F6D-4CF5-B508-94CA1A6A8564}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E1ECB06-BB0F-42AB-8040-21C05E5478C3}
+	EndGlobalSection
+EndGlobal
