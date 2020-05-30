@@ -5,21 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntervalTimer"
         mc:Ignorable="d"
-        Title="TimerSetter" Height="450" Width="800">
+        Title="TimerSetter" Height="372" Width="294">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <!--0行目-->
-            <Separator Grid.Row="0" VerticalAlignment="Bottom" Margin="1"></Separator>
-        
+        <TextBlock Text="タイマー1" Margin="10" FontSize="20"></TextBlock>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox x:Name="test1" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <Label Content="分" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
+            </StackPanel>
+
+            <TextBlock Text=":" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,0,10,0"></TextBlock>
+            
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox x:Name="test2" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <Label Content="秒" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
+            </StackPanel>
+        </StackPanel>
+        <Separator Grid.Row="0" VerticalAlignment="Bottom" Margin="1"></Separator>
+
 
         <!--1行目-->
-            <Separator Grid.Row="1" VerticalAlignment="Bottom" Margin="1"></Separator>
+        <Separator Grid.Row="1" VerticalAlignment="Bottom" Margin="1"></Separator>
+        <TextBlock Text="タイマー2" Margin="10" FontSize="20" Grid.Row="1"></TextBlock>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox x:Name="test4" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <Label Content="分" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
+            </StackPanel>
+
+            <TextBlock Text=":" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,0,10,0"></TextBlock>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox x:Name="test5" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <Label Content="秒" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
+            </StackPanel>
+        </StackPanel>
         <!--2行目-->
     </Grid>
 </Window>
