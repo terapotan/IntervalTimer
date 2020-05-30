@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntervalTimer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="インターバルタイマー" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Hello world." />
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Viewbox Grid.Row="0" Margin="30">
+            <TextBlock Text="00:00:00" TextAlignment="Center"  VerticalAlignment="Center"/>
+        </Viewbox>
+        
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="インターバル設定" Margin="10"></Button>
+            <Button Content="タイマー停止" Margin="10"></Button>
+            <Button Content="タイマー一時停止" Margin="10"></Button>
+            <Button Content="タイマー再生" Margin="10"></Button>
+        </WrapPanel>
     </Grid>
 </Window>
