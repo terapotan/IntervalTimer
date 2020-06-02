@@ -70,8 +70,8 @@ namespace IntervalTimer
             //TODO:ここら辺の初期化処理は、ダイアログからデータを受け取る時には変更すること。
             TimerInitialSeconds = new int[2];
 
-            TimerInitialSeconds[0] = 10;
-            TimerInitialSeconds[1] = 20;
+            TimerInitialSeconds[0] = 5;
+            TimerInitialSeconds[1] = 2;
 
             TimerEnd += new TimerEndEventHandler(TimerEndHandler);
         }
@@ -117,8 +117,8 @@ namespace IntervalTimer
 
             Timer.Tick += (s,e) =>
             {
-                TimerDisplayedSeconds -= 1;
                 TimerString.Text = GenerateTimerString(TimerDisplayedSeconds);
+                TimerDisplayedSeconds -= 1;
                 if(TimerDisplayedSeconds == -1)
                 {
                     TimerEnd(this, EventArgs.Empty);
@@ -138,7 +138,7 @@ namespace IntervalTimer
             }
 
             //最大繰り返し回数を超えている場合、次のタイマーを始動しない。
-            if(AllTimerRepeatedTimes > MaxAllTimerRepatedTimes)
+            if(AllTimerRepeatedTimes >= MaxAllTimerRepatedTimes)
             {
                 return;
             }
