@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace IntervalTimer
 {
@@ -20,15 +21,50 @@ namespace IntervalTimer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int TimerElapsedSeconds = 0;
+        private DispatcherTimer Timer;
+        
         public MainWindow()
         {
             InitializeComponent();
+            SetupTimer();
         }
 
         private void WhenTimerSettingButtonPressed(object sender, RoutedEventArgs e)
         {
             var WindowInstance = new TimerSetter();
             WindowInstance.ShowDialog();
+        }
+
+        private void WhenTimerStartButtonPressed(object sender, RoutedEventArgs e)
+        {
+            Timer.Start();
+        }
+
+        private string GenerateTimerString(int Seconds)
+        {
+            int DisplayedMinutes = 0;
+            int DisplayedSeconds = 0;
+
+            DisplayedMinutes = Seconds / 60;
+            DisplayedSeconds = Seconds - DisplayedMinutes * 60;
+
+            return DisplayedMinutes.ToString() + ":" + DisplayedSeconds.ToString();
+
+        }
+
+        private void SetupTimer()
+        {
+            Timer = new DispatcherTimer(DispatcherPriority.Normal)
+            {
+                Interval = TimeSpan.FromSeconds(1.0),
+            };
+
+            Timer.Tick += (s,e) =>
+            {
+                TimerElapsedSeconds += 1;
+                TimerString.Text = GenerateTimerString(TimerElapsedSeconds);
+            };
         }
     }
 }
