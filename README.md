@@ -39,7 +39,7 @@
 
 メールアドレスを明かしたくない場合は、このページからGitHubの機能を使ってイシューを送るか、私のTwitterへ連絡してください。  
 
-Twitter:https://twitter.com/home
+Twitter:https://twitter.com/terapotan
 
 # ライセンス
 MITライセンスで配布しています。  
