@@ -49,7 +49,7 @@ namespace IntervalTimer
             DisplayedMinutes = Seconds / 60;
             DisplayedSeconds = Seconds - DisplayedMinutes * 60;
 
-            return DisplayedMinutes.ToString() + ":" + DisplayedSeconds.ToString();
+            return DisplayedMinutes.ToString("00") + ":" + DisplayedSeconds.ToString("00");
 
         }
 
