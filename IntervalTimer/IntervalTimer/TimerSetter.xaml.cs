@@ -19,9 +19,34 @@ namespace IntervalTimer
     /// </summary>
     public partial class TimerSetter : Window
     {
-        public TimerSetter()
+
+        private MainWindow MainWindowInstance;
+
+        public TimerSetter(MainWindow Instance)
         {
             InitializeComponent();
+            MainWindowInstance = Instance;
+        }
+
+        //HACK:あろうことに、TimerSetterクラスからMainWindowクラスのメンバ変数を直接書き換えている。
+        //本来は、どうにかしてそうしない方法を模索すべきなのだろうが、今回は時間がないためこうしている。
+        private void WhenTimerSettingOKButtonPressed(object sender, RoutedEventArgs e)
+        {
+            int TimerOneSeconds = 0;
+            int TimerTwoSeconds = 0;
+
+            TimerOneSeconds = int.Parse(Timer1Minutes.Text) * 60 + int.Parse(Timer1Seconds.Text);
+            TimerTwoSeconds = int.Parse(Timer2Minutes.Text) * 60 + int.Parse(Timer2Seconds.Text);
+
+            MainWindowInstance.MaxAllTimerRepatedTimes = int.Parse(RepeatedTimes.Text);
+
+            MainWindowInstance.TimerInitialSeconds[0] = TimerOneSeconds;
+            MainWindowInstance.TimerInitialSeconds[1] = TimerTwoSeconds;
+
+            MainWindowInstance.IsPressedOKButton = true;
+
+            Close();
+
         }
     }
 }

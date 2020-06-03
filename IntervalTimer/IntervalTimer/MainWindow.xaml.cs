@@ -46,7 +46,7 @@ namespace IntervalTimer
         /// AllTimerRepeatedTimesがこの変数の値を超えると、タイマーは終了する。
         /// (次のタイマーが始まらない)
         /// </summary>
-        private int MaxAllTimerRepatedTimes = 3;
+        public int MaxAllTimerRepatedTimes = 0;
         private DispatcherTimer Timer;
         private event TimerEndEventHandler TimerEnd;
 
@@ -58,9 +58,9 @@ namespace IntervalTimer
         /// タイマーの初期表示秒数の配列。20,10,5であれば20,10,5秒のタイマーが連続で
         /// 始動することになる。
         /// </summary>
-        private int[] TimerInitialSeconds;
+        public int[] TimerInitialSeconds;
 
-
+        public bool IsPressedOKButton = false;
         
         public MainWindow()
         {
@@ -79,8 +79,14 @@ namespace IntervalTimer
 
         private void WhenTimerSettingButtonPressed(object sender, RoutedEventArgs e)
         {
-            var WindowInstance = new TimerSetter();
+            var WindowInstance = new TimerSetter(this);
             WindowInstance.ShowDialog();
+
+            if (IsPressedOKButton)
+            {
+                TimerStart.IsEnabled = true;
+                IsPressedOKButton = false;
+            }
         }
 
         private void WhenTimerStartButtonPressed(object sender, RoutedEventArgs e)
@@ -88,6 +94,12 @@ namespace IntervalTimer
             InitializeTimer();
             TimerDisplayedSeconds = TimerInitialSeconds[0];
             Timer.Start();
+            Title = GenerateTitleString();
+
+            TimerClear.IsEnabled = true;
+            TimeStop.IsEnabled = true;
+            TimerStart.IsEnabled = false;
+            IntervalSetting.IsEnabled = false;
         }
 
         /// <summary>
@@ -126,6 +138,13 @@ namespace IntervalTimer
             };
         }
 
+        private String GenerateTitleString()
+        {
+            return "インターバルタイマー(" + (AllTimerRepeatedTimes + 1).ToString()
+                + "回目/"
+                + "タイマー" + (ExecutingTimerNumber + 1).ToString() + ")";
+        }
+
         private void TimerEndHandler(object Sender, EventArgs EventArgs)
         {
             Timer.Stop();
@@ -140,12 +159,15 @@ namespace IntervalTimer
             //最大繰り返し回数を超えている場合、次のタイマーを始動しない。
             if(AllTimerRepeatedTimes >= MaxAllTimerRepatedTimes)
             {
+                Title = "インターバルタイマー";
                 return;
             }
 
             TimerDisplayedSeconds = TimerInitialSeconds[ExecutingTimerNumber];
             SetupTimer();
             Timer.Start();
+            Title = GenerateTitleString();
+            System.Media.SystemSounds.Beep.Play();
         }
 
         /// <summary>
@@ -157,6 +179,31 @@ namespace IntervalTimer
             TimerDisplayedSeconds = 0;
             ExecutingTimerNumber = 0;
             AllTimerRepeatedTimes = 0;
+        }
+
+        private void TimeStop_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)(TimeStop.IsChecked))
+            {
+                Timer.Stop();
+            } else
+            {
+                Timer.Start();
+            }
+            
+        }
+
+        private void TimerClear_Click(object sender, RoutedEventArgs e)
+        {
+            Timer.Stop();
+            InitializeTimer();
+            TimerString.Text = GenerateTimerString(TimerDisplayedSeconds);
+            Title = "インターバルタイマー";
+
+            TimerStart.IsEnabled = false;
+            TimeStop.IsEnabled = false;
+            TimerClear.IsEnabled = false;
+            IntervalSetting.IsEnabled = true;
         }
     }
 }
