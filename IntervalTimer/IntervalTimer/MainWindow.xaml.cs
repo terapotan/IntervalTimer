@@ -46,7 +46,7 @@ namespace IntervalTimer
         /// AllTimerRepeatedTimesがこの変数の値を超えると、タイマーは終了する。
         /// (次のタイマーが始まらない)
         /// </summary>
-        public int MaxAllTimerRepatedTimes = 3;
+        public int MaxAllTimerRepatedTimes = 0;
         private DispatcherTimer Timer;
         private event TimerEndEventHandler TimerEnd;
 
@@ -88,6 +88,7 @@ namespace IntervalTimer
             InitializeTimer();
             TimerDisplayedSeconds = TimerInitialSeconds[0];
             Timer.Start();
+            Title = GenerateTitleString();
         }
 
         /// <summary>
@@ -126,6 +127,13 @@ namespace IntervalTimer
             };
         }
 
+        private String GenerateTitleString()
+        {
+            return "インターバルタイマー(" + (AllTimerRepeatedTimes + 1).ToString()
+                + "回目/"
+                + "タイマー" + (ExecutingTimerNumber + 1).ToString() + ")";
+        }
+
         private void TimerEndHandler(object Sender, EventArgs EventArgs)
         {
             Timer.Stop();
@@ -140,12 +148,15 @@ namespace IntervalTimer
             //最大繰り返し回数を超えている場合、次のタイマーを始動しない。
             if(AllTimerRepeatedTimes >= MaxAllTimerRepatedTimes)
             {
+                Title = "インターバルタイマー";
                 return;
             }
 
             TimerDisplayedSeconds = TimerInitialSeconds[ExecutingTimerNumber];
             SetupTimer();
             Timer.Start();
+            Title = GenerateTitleString();
+
         }
 
         /// <summary>
