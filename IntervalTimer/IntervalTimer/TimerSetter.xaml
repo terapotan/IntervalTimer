@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntervalTimer"
         mc:Ignorable="d"
-        Title="TimerSetter" Height="372" Width="294" ResizeMode="NoResize">
+        Title="タイマー設定" Height="372" Width="294" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -19,14 +19,14 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="test1" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <TextBox x:Name="test1" Text="1"  Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
                 <Label Content="分" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
             </StackPanel>
 
             <TextBlock Text=":" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,0,10,0"></TextBlock>
             
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="test2" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <TextBox x:Name="test2" Text="30" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
                 <Label Content="秒" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
             </StackPanel>
         </StackPanel>
@@ -39,14 +39,14 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="test4" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <TextBox x:Name="test4" Text="0" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
                 <Label Content="分" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
             </StackPanel>
 
             <TextBlock Text=":" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0,0,10,0"></TextBlock>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="test5" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
+                <TextBox x:Name="test5" Text="30" Width="50" FontSize="25" Height="30" TextAlignment="Right"></TextBox>
                 <Label Content="秒" FontSize="25" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
             </StackPanel>
         </StackPanel>
@@ -61,7 +61,7 @@
             <TextBlock Text="繰り返し回数" Margin="10" FontSize="15"></TextBlock>
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="test6" Width="50" FontSize="15" Height="20" TextAlignment="Right"></TextBox>
+                <TextBox x:Name="test6" Text="3" Width="50" FontSize="15" Height="20" TextAlignment="Right"></TextBox>
                 <Label Content="回" FontSize="20" Target="{Binding ElementName=test1}" VerticalAlignment="Center"></Label>
             </StackPanel>
 
