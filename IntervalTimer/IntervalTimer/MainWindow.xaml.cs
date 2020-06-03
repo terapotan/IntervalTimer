@@ -60,7 +60,7 @@ namespace IntervalTimer
         /// </summary>
         public int[] TimerInitialSeconds;
 
-
+        public bool IsPressedOKButton = false;
         
         public MainWindow()
         {
@@ -81,6 +81,12 @@ namespace IntervalTimer
         {
             var WindowInstance = new TimerSetter(this);
             WindowInstance.ShowDialog();
+
+            if (IsPressedOKButton)
+            {
+                TimerStart.IsEnabled = true;
+                IsPressedOKButton = false;
+            }
         }
 
         private void WhenTimerStartButtonPressed(object sender, RoutedEventArgs e)
@@ -89,6 +95,11 @@ namespace IntervalTimer
             TimerDisplayedSeconds = TimerInitialSeconds[0];
             Timer.Start();
             Title = GenerateTitleString();
+
+            TimerClear.IsEnabled = true;
+            TimeStop.IsEnabled = true;
+            TimerStart.IsEnabled = false;
+            IntervalSetting.IsEnabled = false;
         }
 
         /// <summary>
@@ -188,6 +199,11 @@ namespace IntervalTimer
             InitializeTimer();
             TimerString.Text = GenerateTimerString(TimerDisplayedSeconds);
             Title = "インターバルタイマー";
+
+            TimerStart.IsEnabled = false;
+            TimeStop.IsEnabled = false;
+            TimerClear.IsEnabled = false;
+            IntervalSetting.IsEnabled = true;
         }
     }
 }
