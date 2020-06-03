@@ -181,5 +181,13 @@ namespace IntervalTimer
             }
             
         }
+
+        private void TimerClear_Click(object sender, RoutedEventArgs e)
+        {
+            Timer.Stop();
+            InitializeTimer();
+            TimerString.Text = GenerateTimerString(TimerDisplayedSeconds);
+            Title = "インターバルタイマー";
+        }
     }
 }

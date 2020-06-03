@@ -17,10 +17,10 @@
         </Viewbox>
         
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="インターバル設定" Margin="10" Padding="10" Click="WhenTimerSettingButtonPressed"></Button>
-            <Button Content="タイマー停止" Margin="10" Padding="10"></Button>
+            <Button x:Name="IntervalSetting" Content="インターバル設定" Margin="10" Padding="10" Click="WhenTimerSettingButtonPressed"></Button>
+            <Button x:Name="TimerClear" Content="タイマー停止" Margin="10" Padding="10" Click="TimerClear_Click"></Button>
             <ToggleButton x:Name="TimeStop" Content="タイマー 一時停止" Margin="10" Padding="10" Click="TimeStop_Click"></ToggleButton>
-            <Button Content="タイマー再生" Margin="10" Padding="10" Click="WhenTimerStartButtonPressed"></Button>
+            <Button x:Name="TimerStart" Content="タイマー再生" Margin="10" Padding="10" Click="WhenTimerStartButtonPressed"></Button>
         </WrapPanel>
     </Grid>
 </Window>
