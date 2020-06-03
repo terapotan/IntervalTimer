@@ -43,6 +43,8 @@ namespace IntervalTimer
             MainWindowInstance.TimerInitialSeconds[0] = TimerOneSeconds;
             MainWindowInstance.TimerInitialSeconds[1] = TimerTwoSeconds;
 
+            MainWindowInstance.IsPressedOKButton = true;
+
             Close();
 
         }
