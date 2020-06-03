@@ -156,7 +156,7 @@ namespace IntervalTimer
             SetupTimer();
             Timer.Start();
             Title = GenerateTitleString();
-
+            System.Media.SystemSounds.Beep.Play();
         }
 
         /// <summary>
