@@ -46,7 +46,7 @@ namespace IntervalTimer
         /// AllTimerRepeatedTimesがこの変数の値を超えると、タイマーは終了する。
         /// (次のタイマーが始まらない)
         /// </summary>
-        private int MaxAllTimerRepatedTimes = 3;
+        public int MaxAllTimerRepatedTimes = 3;
         private DispatcherTimer Timer;
         private event TimerEndEventHandler TimerEnd;
 
@@ -58,7 +58,7 @@ namespace IntervalTimer
         /// タイマーの初期表示秒数の配列。20,10,5であれば20,10,5秒のタイマーが連続で
         /// 始動することになる。
         /// </summary>
-        private int[] TimerInitialSeconds;
+        public int[] TimerInitialSeconds;
 
 
         
@@ -79,7 +79,7 @@ namespace IntervalTimer
 
         private void WhenTimerSettingButtonPressed(object sender, RoutedEventArgs e)
         {
-            var WindowInstance = new TimerSetter();
+            var WindowInstance = new TimerSetter(this);
             WindowInstance.ShowDialog();
         }
 
