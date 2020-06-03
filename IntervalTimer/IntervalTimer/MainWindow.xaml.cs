@@ -169,5 +169,17 @@ namespace IntervalTimer
             ExecutingTimerNumber = 0;
             AllTimerRepeatedTimes = 0;
         }
+
+        private void TimeStop_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)(TimeStop.IsChecked))
+            {
+                Timer.Stop();
+            } else
+            {
+                Timer.Start();
+            }
+            
+        }
     }
 }

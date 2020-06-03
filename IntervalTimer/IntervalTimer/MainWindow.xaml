@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="インターバルタイマー" Height="450" Width="800">
     <Grid>
-        <!--タイマー表示は、タイトルを動的に変更して表す。-->
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
@@ -20,7 +19,7 @@
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Content="インターバル設定" Margin="10" Padding="10" Click="WhenTimerSettingButtonPressed"></Button>
             <Button Content="タイマー停止" Margin="10" Padding="10"></Button>
-            <Button Content="タイマー 一時停止" Margin="10" Padding="10"></Button>
+            <ToggleButton x:Name="TimeStop" Content="タイマー 一時停止" Margin="10" Padding="10" Click="TimeStop_Click"></ToggleButton>
             <Button Content="タイマー再生" Margin="10" Padding="10" Click="WhenTimerStartButtonPressed"></Button>
         </WrapPanel>
     </Grid>
